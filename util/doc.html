@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300 p-8">
+    <div class="max-w-5xl mx-auto bg-gray-800 p-10 rounded-xl shadow-xl">
+        <h1 class="text-4xl font-extrabold text-gray-100">API Documentation</h1>
+        <p class="mt-3 text-lg text-gray-400">Details about API endpoints, request formats, and constraints.</p>
+
+        <h2 class="mt-8 text-3xl font-semibold text-gray-200 border-b border-gray-600 pb-2">Endpoints</h2>
+
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-gray-100">1. Generate Questions</h3>
+            <p class="mt-1 text-gray-400"><span class="font-medium text-blue-400">POST /generateQuestions</span></p>
+
+            <h4 class="mt-3 font-semibold text-gray-200">Request Format:</h4>
+            <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
+    "userData": {
+        "name": "Swetha M",
+        "location": "Coimbatore",
+        "cutoff": 192.5,
+        "CBSC/BOARD": "STATE",
+        "HR.Sec.Course": "CSE",
+        "favor_districts": ["Chennai", "Coimbatore"],
+        "interested_colleges": ["IIT", "MIT"],
+        "query": "I am confused between choosing AIDS or AIML in engineering"
+    }
+}</pre>
+
+            <h4 class="mt-3 font-semibold text-gray-200">Response Format:</h4>
+            <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">
+                {
+                "questions": [
+                {
+                "q": "Are you interested in healthcare?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you enjoy working with data?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you fascinated by artificial intelligence?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you like experimenting with new technologies?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you interested in programming languages?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you prefer working in a team?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Do you enjoy theoretical concepts?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Are you interested in computer vision?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you like to develop algorithms?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you curious about data analytics?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you prefer a more practical approach?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you interested in solving real-world problems?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you enjoy building models?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you intrigued by natural language processing?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you prefer logical reasoning?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you interested in deep learning?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you enjoy implementing machine learning algorithms?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                },
+                {
+                "q": "Are you fascinated by the Internet of Things?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Maybe"
+                }
+                },
+                {
+                "q": "Do you prefer structured data?",
+                "options": {
+                "1": "Yes",
+                "2": "No",
+                "3": "Sometimes"
+                }
+                }
+                ]
+                }
+</pre>
+            <p class="mt-2 text-gray-400 font-medium">Constraints:</p>
+            <ul class="list-disc list-inside text-gray-400 ml-5">
+                <li>Exactly 20 questions</li>
+                <li>Each question ≤ 100 characters</li>
+                <li>Each question has 3 options, each ≤ 10 characters</li>
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <h3 class="text-2xl font-semibold text-gray-100">2. Get Recommendations</h3>
+            <p class="mt-1 text-gray-400"><span class="font-medium text-blue-400">POST /getrecommendations</span></p>
+
+            <h4 class="mt-3 font-semibold text-gray-200">Request Format:</h4>
+            <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
+    "userData": {
+    "name": "Swetha M",
+    "location": "Coimbatore",
+    "cutoff": 192.5,
+    "CBSC/BOARD": "STATE",
+    "HR.Sec.Course": "CSE",
+    "favor_districts": ["Chennai", "Coimbatore"],
+    "interested_colleges": ["IIT", "MIT"],
+    "query": "I am confused between choosing AIDS or AIML in engineering"
+    },
+    "SurveyResult": [
+    {
+    "q": "Are you interested in healthcare?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Do you enjoy working with data?",
+    "Choosed": "Sometimes"
+    },
+    {
+    "q": "Are you fascinated by artificial intelligence?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Do you like experimenting with new technologies?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Are you interested in programming languages?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you prefer working in a team?",
+    "Choosed": "Sometimes"
+    },
+    {
+    "q": "Do you enjoy theoretical concepts?",
+    "Choosed": "No"
+    },
+    {
+    "q": "Are you interested in computer vision?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you like to develop algorithms?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Are you curious about data analytics?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you prefer a more practical approach?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Are you interested in solving real-world problems?",
+    "Choosed": "Yes"
+    },
+    {
+    "q": "Do you enjoy building models?",
+    "Choosed": "Sometimes"
+    },
+    {
+    "q": "Are you intrigued by natural language processing?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you prefer logical reasoning?",
+    "Choosed": "Sometimes"
+    },
+    {
+    "q": "Are you interested in deep learning?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you enjoy implementing machine learning algorithms?",
+    "Choosed": "Sometimes"
+    },
+    {
+    "q": "Are you fascinated by the Internet of Things?",
+    "Choosed": "Maybe"
+    },
+    {
+    "q": "Do you prefer structured data?",
+    "Choosed": "Sometimes"
+    }
+    ]
+
+}</pre>
+
+            <h4 class="mt-3 font-semibold text-gray-200">Response Format:</h4>
+            <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
+    
+    "recommendation": {
+    "course": "AIML",
+    "college": "IIT",
+    "reason": "Relevant to interest in AI"
+    }
+    
+}</pre>
+            <p class="mt-2 text-gray-400 font-medium">Constraints:</p>
+            <ul class="list-disc list-inside text-gray-400 ml-5">
+                <li>Real-time course comparison using internet data</li>
+                <li>Max response length: 50 characters</li>
+                <li>Strict JSON format</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="max-w-4xl mx-auto bg-gray-900 p-6 rounded-lg shadow-md text-white">
+        <h1 class="text-3xl font-bold text-white mb-4">Development API Documentation</h1>
+        <p class="text-gray-400 mb-6">This documentation is for development purposes only. These routes provide mock
+            responses to simulate API behavior.</p>
+
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-300">1. Fake Generate Questions</h2>
+            <p class="text-gray-400">Generates a set of 20 mock questions to help determine a suitable course for the
+                user.
+            </p>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-green-400">POST /fakeGenerateQuestions</pre>
+            <h3 class="text-lg font-medium text-gray-300 mt-2">Request Body:</h3>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
+  "userData": {
+    "name": "string",
+    "location": "string",
+    "cutoff": "number",
+    "CBSC/BOARD": "string",
+    "HR.Sec.Course": "string",
+    "favor_districts": ["string"],
+    "interested_colleges": ["string"],
+    "query": "string"
+  }
+}</pre>
+            <h3 class="text-lg font-medium text-gray-300 mt-2">Response:</h3>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
+        "questions": [
+        {
+        "q": "Do you like programming?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Are you interested in AI?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you enjoy math?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you prefer theory or practice?",
+        "options": { "1": "Theory", "2": "Practice", "3": "Both" }
+        },
+        {
+        "q": "Do you like working with data?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Do you enjoy teamwork?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you like solving puzzles?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Are you interested in research?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you prefer working alone?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Are you comfortable with statistics?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Do you like web development?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Are you interested in robotics?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you enjoy automation tasks?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Do you prefer structured learning?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you like app development?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Are you interested in cybersecurity?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Do you enjoy debugging code?",
+        "options": { "1": "Yes", "2": "No", "3": "Sometimes" }
+        },
+        {
+        "q": "Do you like working on databases?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        },
+        {
+        "q": "Do you prefer AI over networking?",
+        "options": { "1": "Yes", "2": "No", "3": "Not sure" }
+        },
+        {
+        "q": "Do you enjoy learning new tech?",
+        "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+        }
+        ]
+        }
+</pre>
+            <p class="text-gray-400 mt-2"><strong>Response Time:</strong> ~2 seconds</p>
+            <p class="text-red-400 mt-1"><strong>Errors:</strong> 400 Bad Request if userData is missing or incorrect.
+            </p>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-gray-300">2. Fake Get Recommendations</h2>
+            <p class="text-gray-400">Generates a mock course recommendation based on the user's responses.</p>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-green-400">POST /fakeGetRecommendations</pre>
+            <h3 class="text-lg font-medium text-gray-300 mt-2">Request Body:</h3>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
+  "userData": {
+    "name": "string",
+    "location": "string",
+    "cutoff": "number",
+    "CBSC/BOARD": "string",
+    "HR.Sec.Course": "string",
+    "favor_districts": ["string"],
+    "interested_colleges": ["string"],
+    "query": "string"
+  },
+  "SurveyResult": {
+    "question_id": "selected_option"
+  }
+}</pre>
+            <h3 class="text-lg font-medium text-gray-300 mt-2">Response:</h3>
+            <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
+  "recommendation": {
+    "course": "AIML",
+    "college": "Best College",
+    "reason": "Better AI scope"
+  }
+}</pre>
+            <p class="text-gray-400 mt-2"><strong>Response Time:</strong> ~2 seconds</p>
+            <p class="text-red-400 mt-1"><strong>Errors:</strong> 400 Bad Request if userData or SurveyResult is missing
+                or
+                incorrect.</p>
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+
+</html>
