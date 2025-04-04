@@ -34,22 +34,24 @@ app.post('/check', (req, res) => {
   res.status(403).json({ error: 'Invalid Password' });
 });
 
-app.post(
-  '/fakeGenerateQuestions',
-  async (req, res) => {
-    try {
-      const promptText = generateQuestionsPrompt(req.body.userData);
-      const response = await openai.chat.completions.create({
-        model: 'gpt-4-turbo',
-        messages: [{ role: 'user', content: promptText }],
-      });
 
-      res.json(JSON.parse(response.choices?.[0]?.message?.content || '{}'));
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
+app.post('/fakeGenerateQuestions', async (req, res) => {
+  try {
+    const promptText = generateQuestionsPrompt(req.body.userData);
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4-turbo',
+      messages: [{ role: 'user', content: promptText }],
+    });
+
+    let content = response.choices?.[0]?.message?.content?.trim();
+    const jsonData = content ? JSON.parse(content) : {};
+
+    res.json(jsonData);
+  } catch {
+    res.status(500).json({ error: 'Something went wrong' });
   }
-);
+});
+
 
 app.post(
   '/fakeGetRecommendations',

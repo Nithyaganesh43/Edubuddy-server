@@ -98,28 +98,27 @@ const generateQuestionsPrompt = (userData) => {
   return `
     I am ${name}, from ${location}. I studied ${board} and pursued ${hrCourse}. 
     My cutoff is ${cutoff}, and I prefer colleges in ${favor_districts.join(
-    ', and my fav college',
-    interested_colleges
+    ', '
   )}.
+    My favorite colleges are: ${interested_colleges.join(', ')}.
     ${query}
 
     Generate exactly 20 survey questions (5 Personal, 5 Lifestyle, 10 Technical) to help me decide.
 
     Strict Output Format: JSON with these constraints:
-    - Each question must be specificaly for this student detailes and helps for clarity aboute the query ans char length of the question must be 120 chars.
+    - Each question must be specific to my details and relevant to my query.
     - Each question must have exactly 3 options, each ≤ 10 characters.
     - Total questions: 20.
     - JSON format:
     {
       "questions": [
-        { "q": "Do you enjoy solving problems?", "options": {"1": "Yes", "2": "No", "3": "Maybe"} },
-        { "q": "Do you prefer coding?", "options": {"1": "Yes", "2": "No", "3": "Sometimes"} },
-        ...
+        { "q": "Do you enjoy solving problems?", "options": { "1": "Yes", "2": "No", "3": "Maybe" } },
+        { "q": "Do you prefer coding?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } }
       ]
     }
-    IMPORTANT: Ensure that the response strictly follows these constraints.  
+    IMPORTANT: Ensure that the response strictly follows these constraints.
   `;
-}
+};
   const getrecommendationsPrompt = (userData, SurveyResult) =>{ return `
     Based on the student's profile, responses, and query, find the best course option.
 
