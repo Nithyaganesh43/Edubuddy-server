@@ -36,7 +36,6 @@ app.post('/check', (req, res) => {
 
 app.post(
   '/fakeGenerateQuestions',
-    validatePassword,
     validateUserData,
   async (req, res) => {
     try {
@@ -55,7 +54,6 @@ app.post(
 
 app.post(
   '/fakeGetRecommendations',
-  validatePassword,
   validateRecommendationBody,
   async (req, res) => {
     try {
