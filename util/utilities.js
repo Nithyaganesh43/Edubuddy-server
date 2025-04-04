@@ -1,41 +1,51 @@
- 
+ const generateQuestionsPrompt = (userData) => {
+   const {
+     name,
+     location,
+     cutoff,
+     'CBSC/BOARD': board,
+     'HR.Sec.Course': hrCourse,
+     favor_districts,
+     interested_colleges,
+     query,
+   } = userData;
 
-const generateQuestionsPrompt = (userData) => {
-  const {
-    name,
-    location,
-    cutoff,
-    'CBSC/BOARD': board,
-    'HR.Sec.Course': hrCourse,
-    favor_districts,
-    interested_colleges,
-    query,
-  } = userData;
+   return `
+    I am ${name} from ${location}. I studied under the ${board} board and took ${hrCourse} in my previous course.  
+    My cutoff score is ${cutoff}, and I prefer colleges in ${favor_districts.join(
+     ', '
+   )}.  
+    Some colleges I am interested in: ${interested_colleges.join(', ')}.  
 
-  return `
-    I am ${name}, from ${location}. I studied ${board} and pursued ${hrCourse}. 
-    My cutoff is ${cutoff}, and I prefer colleges in ${favor_districts.join(
-    ', '
-  )}.
-    My favorite colleges are: ${interested_colleges.join(', ')}.
     ${query}
 
-    Generate exactly 20 survey questions (5 Personal, 5 Lifestyle, 10 Technical) to help me decide.
+    Please create 20 thoughtful survey questions to help me choose the right course and college.  
+    - 5 Personal questions  
+    - 5 Lifestyle questions  
+    - 10 Subject-related questions  
 
-    Strict Output Format: JSON with these constraints:
-    - Each question must be specific to my details and relevant to my query make sure some detailes are used in the question.
-    - Each question must have exactly 3 options, each ≤ 10 characters.
-    - Total questions: 20.
-    - JSON format:
+    **Strict Rules for Questions:**  
+    - The questions should match my background and help me think about my future.  
+    - The questions should be easy to understand for students from different education levels.  
+    - Do not use specific terms like "engineering," "arts," or "medical" directly—ask in a way that any student can relate to.  
+    - Each question should have exactly 3 answer options, with each option being 10 characters or fewer.  
+    - The total number of questions must be exactly 20.  
+
+    **Output Format (JSON):**  
     {
       "questions": [
-        { "q": "Do you enjoy solving problems?", "options": { "1": "Yes", "2": "No", "3": "Maybe" } },
-        { "q": "Do you prefer coding?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } }
+        { "q": "Do you like solving problems?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } },
+        { "q": "Have you worked in ITO project before?", "options": { "1": "Yes", "2": "No", "3": "Not sure" } }
       ]
     }
-    IMPORTANT: Ensure that the response strictly follows these constraints and this is mainly based on tamil nadu and india mostly about engineering.
+
+    **IMPORTANT:**  
+    - The survey is for students in Tamil Nadu, India, from different education levels (12th-pass and college students).  
+    - Questions should not be too direct, like "Do you want to study law?" Instead, ask in a way that helps the student think.  
+    - The questions should be creative and personalized, making it easier for the student to explore their interests.  
   `;
-};
+ };
+
   const getrecommendationsPrompt = (userData, SurveyResult) =>{ return `
     Based on the student's profile, responses, and query, find the best course option.
 
