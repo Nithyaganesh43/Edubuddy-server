@@ -28,11 +28,7 @@ server.use((req, res, next) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   next();
 });
-
-
-
-
-
+ 
 server.get('/ping', async (req, res) => { 
   console.log("Pong");
   res.send('Pong from Server 1'); 
