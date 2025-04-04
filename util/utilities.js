@@ -55,14 +55,14 @@ const generateQuestionsPrompt = (userData) => {
     Task:  
     - Search the internet to find real-time information about the courses mentioned in the query at the specified colleges.
     - Compare them based on curriculum, job prospects, and relevancy to the student's survey responses.
-    - Provide a strict, concise recommendation in 100 characters or fewer.
+    - Provide a strict, concise recommendation in 150 characters or fewer.
 
-    Strict JSON Response Format (must be under 100 characters):  
+    Strict JSON Response Format (must be under 150 characters):  
     {
       "recommendation": {
         "course": "Best-suited course",
         "college": "Best-suited college",
-        "reason": "Strictly under 150 characters reason should be personaly for this student"
+        "reason": "Strictly under 100 characters reason should be personaly for this student"
       }
     } 
     `;

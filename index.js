@@ -58,7 +58,6 @@ app.post(
       const response = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [{ role: 'system', content: promptText }],
-        max_tokens: 50,
       });
       res.send(response.choices?.[0]?.message?.content || '');
     } catch (error) {
