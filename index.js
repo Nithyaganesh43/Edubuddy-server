@@ -35,14 +35,12 @@ app.post('/check', (req, res) => {
 });
 
 app.post(
-  '/fakeGenerateQuestions',
-  validatePassword,
-  validateUserData,
+  '/fakeGenerateQuestions',  
   async (req, res) => {
     try {
       const promptText = generateQuestionsPrompt(req.body.userData);
      const response = await openai.chat.completions.create({
-       model: 'gpt-4o-turbo',
+       model: 'gpt-4-turbo',
        messages: [{ role: 'user', content: promptText }],
      });
 
