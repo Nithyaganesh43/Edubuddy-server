@@ -35,7 +35,7 @@ app.post('/check', (req, res) => {
 });
 
 app.post(
-  '/generateQuestions',
+  '/fakeGenerateQuestions',
   validatePassword,
   validateUserData,
   async (req, res) => {
@@ -53,7 +53,7 @@ app.post(
 );
 
 app.post(
-  '/getrecommendations',
+  '/fakeGetRecommendations',
   validatePassword,
   validateRecommendationBody,
   async (req, res) => {
@@ -74,33 +74,33 @@ app.post(
   }
 );
 
-app.post(
-  '/fakeGenerateQuestions',
-  validatePassword,
-  validateUserData,
-  async (req, res) => {
-    setTimeout(() => {
-      res.json(fackQuestions);
-    }, 2000);
-  }
-);
+// app.post(
+//   '/fakeGenerateQuestions',
+//   validatePassword,
+//   validateUserData,
+//   async (req, res) => {
+//     setTimeout(() => {
+//       res.json(fackQuestions);
+//     }, 2000);
+//   }
+// );
 
-app.post(
-  '/fakeGetRecommendations',
-  validatePassword,
-  validateRecommendationBody,
-  async (req, res) => {
-    setTimeout(() => {
-      res.json({
-        recommendation: {
-          course: 'AIML',
-          college: req.body.userData.interested_colleges[0] || 'SECE',
-          reason: 'Better AI scope',
-        },
-      });
-    }, 2000);
-  }
-);
+// app.post(
+//   '/fakeGetRecommendations',
+//   validatePassword,
+//   validateRecommendationBody,
+//   async (req, res) => {
+//     setTimeout(() => {
+//       res.json({
+//         recommendation: {
+//           course: 'AIML',
+//           college: req.body.userData.interested_colleges[0] || 'SECE',
+//           reason: 'Better AI scope',
+//         },
+//       });
+//     }, 2000);
+//   }
+// );
 
 app.use((req, res) => res.send(doc));
 
