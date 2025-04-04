@@ -36,7 +36,6 @@ app.post('/check', (req, res) => {
 
 app.post(
   '/fakeGenerateQuestions',
-    validateUserData,
   async (req, res) => {
     try {
       const promptText = generateQuestionsPrompt(req.body.userData);
