@@ -2,7 +2,11 @@
 const server = require('express').Router();
 const cors = require("cors");
 
-const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5500'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:5500',
+  'https://v0-new-project-cckdh8yagwu-5e1qsm.vercel.app',
+];
 
 server.use(
   cors({
