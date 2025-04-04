@@ -6,17 +6,11 @@ const serverRouter = require('./util/Server');
 
 const fs = require('fs');
 const path = require('path');
-const {
-  fackQuestions,
+const { 
   generateQuestionsPrompt,
   getrecommendationsPrompt,
 } = require('./util/utilities');
-const {
-  validatePassword,
-  validateUserData,
-  validateRecommendationBody,
-} = require('./util/validation');
-
+ 
 
 const doc = fs.readFileSync(path.join(__dirname, 'util', 'doc.html'), 'utf8');
 
@@ -55,7 +49,6 @@ app.post('/fakeGenerateQuestions', async (req, res) => {
 
 app.post(
   '/fakeGetRecommendations',
-  validateRecommendationBody,
   async (req, res) => {
     try {
       const promptText = getrecommendationsPrompt(
@@ -73,35 +66,7 @@ app.post(
     }
   }
 );
-
-// app.post(
-//   '/fakeGenerateQuestions',
-//   validatePassword,
-//   validateUserData,
-//   async (req, res) => {
-//     setTimeout(() => {
-//       res.json(fackQuestions);
-//     }, 2000);
-//   }
-// );
-
-// app.post(
-//   '/fakeGetRecommendations',
-//   validatePassword,
-//   validateRecommendationBody,
-//   async (req, res) => {
-//     setTimeout(() => {
-//       res.json({
-//         recommendation: {
-//           course: 'AIML',
-//           college: req.body.userData.interested_colleges[0] || 'SECE',
-//           reason: 'Better AI scope',
-//         },
-//       });
-//     }, 2000);
-//   }
-// );
-
+ 
 app.use((req, res) => res.send(doc));
 
 const PORT = process.env.PORT || 3000;
