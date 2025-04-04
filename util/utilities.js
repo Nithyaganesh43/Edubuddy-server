@@ -106,7 +106,7 @@ const generateQuestionsPrompt = (userData) => {
     Generate exactly 20 survey questions (5 Personal, 5 Lifestyle, 10 Technical) to help me decide.
 
     Strict Output Format: JSON with these constraints:
-    - Each question must be ≤ 100 characters.
+    - Each question must be specificaly for this student detailes and helps for clarity aboute the query ans char length of the question must be 120 chars.
     - Each question must have exactly 3 options, each ≤ 10 characters.
     - Total questions: 20.
     - JSON format:
@@ -137,7 +137,7 @@ const generateQuestionsPrompt = (userData) => {
     ${JSON.stringify(SurveyResult)}
 
     Task:  
-    - Search the internet to find real-time information about the courses mentioned in the query (AIDS vs. AIML) at the specified colleges.
+    - Search the internet to find real-time information about the courses mentioned in the query at the specified colleges.
     - Compare them based on curriculum, job prospects, and relevancy to the student's survey responses.
     - Provide a strict, concise recommendation in 50 characters or fewer.
 

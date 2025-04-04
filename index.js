@@ -41,10 +41,11 @@ app.post(
   async (req, res) => {
     try {
       const promptText = generateQuestionsPrompt(req.body.userData);
-      const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'system', content: promptText }],
-      });
+     const response = await openai.chat.completions.create({
+       model: 'gpt-4o-turbo',
+       messages: [{ role: 'user', content: promptText }],
+     });
+
       res.json(JSON.parse(response.choices?.[0]?.message?.content || '{}'));
     } catch (error) {
       res.status(500).json({ error: error.message });
