@@ -21,7 +21,8 @@
 
             <h4 class="mt-3 font-semibold text-gray-200">Request Format:</h4>
             <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
-    "userData": {
+    "PASSWORD":"Password", 
+ "userData": {
         "name": "Swetha M",
         "location": "Coimbatore",
         "cutoff": 192.5,
@@ -206,7 +207,8 @@
 
             <h4 class="mt-3 font-semibold text-gray-200">Request Format:</h4>
             <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
-    "userData": {
+    "PASSWORD":"Password", 
+ "userData": {
     "name": "Swetha M",
     "location": "Coimbatore",
     "cutoff": 192.5,
@@ -329,7 +331,8 @@
             <pre class="bg-gray-800 p-3 rounded mt-2 text-green-400">POST /fakeGenerateQuestions</pre>
             <h3 class="text-lg font-medium text-gray-300 mt-2">Request Body:</h3>
             <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
-  "userData": {
+  "PASSWORD":"Password", 
+ "userData": {
     "name": "string",
     "location": "string",
     "cutoff": "number",
@@ -437,19 +440,96 @@
             <pre class="bg-gray-800 p-3 rounded mt-2 text-green-400">POST /fakeGetRecommendations</pre>
             <h3 class="text-lg font-medium text-gray-300 mt-2">Request Body:</h3>
             <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
-  "userData": {
-    "name": "string",
-    "location": "string",
-    "cutoff": "number",
-    "CBSC/BOARD": "string",
-    "HR.Sec.Course": "string",
-    "favor_districts": ["string"],
-    "interested_colleges": ["string"],
-    "query": "string"
-  },
-  "SurveyResult": {
-    "question_id": "selected_option"
-  }
+"PASSWORD":"Password", 
+ "userData": {
+"name": "Swetha M",
+"location": "Coimbatore",
+"cutoff": 192.5,
+"CBSC/BOARD": "STATE",
+"HR.Sec.Course": "CSE",
+"favor_districts": ["Chennai", "Coimbatore"],
+"interested_colleges": ["IIT", "MIT"],
+"query": "I am confused between choosing AIDS or AIML in engineering"
+},
+
+"SurveyResult": [
+{
+"q": "Are you interested in healthcare?",
+"Choosed": "Yes"
+},
+{
+"q": "Do you enjoy working with data?",
+"Choosed": "Sometimes"
+},
+{
+"q": "Are you fascinated by artificial intelligence?",
+"Choosed": "Yes"
+},
+{
+"q": "Do you like experimenting with new technologies?",
+"Choosed": "Yes"
+},
+{
+"q": "Are you interested in programming languages?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you prefer working in a team?",
+"Choosed": "Sometimes"
+},
+{
+"q": "Do you enjoy theoretical concepts?",
+"Choosed": "No"
+},
+{
+"q": "Are you interested in computer vision?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you like to develop algorithms?",
+"Choosed": "Yes"
+},
+{
+"q": "Are you curious about data analytics?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you prefer a more practical approach?",
+"Choosed": "Yes"
+},
+{
+"q": "Are you interested in solving real-world problems?",
+"Choosed": "Yes"
+},
+{
+"q": "Do you enjoy building models?",
+"Choosed": "Sometimes"
+},
+{
+"q": "Are you intrigued by natural language processing?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you prefer logical reasoning?",
+"Choosed": "Sometimes"
+},
+{
+"q": "Are you interested in deep learning?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you enjoy implementing machine learning algorithms?",
+"Choosed": "Sometimes"
+},
+{
+"q": "Are you fascinated by the Internet of Things?",
+"Choosed": "Maybe"
+},
+{
+"q": "Do you prefer structured data?",
+"Choosed": "Sometimes"
+}
+]
 }</pre>
             <h3 class="text-lg font-medium text-gray-300 mt-2">Response:</h3>
             <pre class="bg-gray-800 p-3 rounded mt-2 text-sm text-green-400">{
@@ -465,6 +545,59 @@
                 incorrect.</p>
         </div>
     </div>
+    <div class="mt-8">
+        <h2 class="text-3xl font-semibold text-gray-200 border-b border-gray-600 pb-2">Constraints & Validations</h2>
+        <ul class="list-disc list-inside text-gray-400 ml-5 mt-4">
+            <li><span class="font-semibold text-gray-300">General:</span> All input must be sanitized to prevent security
+                vulnerabilities.</li>
+            <li><span class="font-semibold text-gray-300">Name:</span> Required, max 100 characters.</li>
+            <li><span class="font-semibold text-gray-300">Location:</span> Required, max 100 characters.</li>
+            <li><span class="font-semibold text-gray-300">Cutoff:</span> Required, max 10 characters.</li>
+            <li><span class="font-semibold text-gray-300">Board:</span> Required, max 50 characters.</li>
+            <li><span class="font-semibold text-gray-300">Higher Secondary Course:</span> Required, max 50 characters.</li>
+            <li><span class="font-semibold text-gray-300">Query:</span> Required, max 200 characters.</li>
+            <li><span class="font-semibold text-gray-300">Favor Districts:</span> Must be an array.</li>
+            <li><span class="font-semibold text-gray-300">Interested Colleges:</span> Must be an array.</li>
+            <li><span class="font-semibold text-gray-300">Survey Result:</span> Required for recommendations.</li>
+        </ul>
+
+        
+    </div>
+<section class="bg-gray-800 p-10 rounded-xl shadow-xl mt-8">
+    <h2 class="text-3xl font-semibold text-gray-200 border-b border-gray-600 pb-2">Authentication</h2>
+    <p class="mt-3 text-lg text-gray-400">All routes are protected by authentication middleware. Every request must
+        include a valid <code>PASSWORD</code> field in the request body.</p>
+
+    <h3 class="mt-6 text-2xl font-semibold text-gray-100">Authentication Request</h3>
+    <p class="mt-1 text-gray-400"><span class="font-medium text-blue-400">POST /check</span></p>
+
+    <h4 class="mt-3 font-semibold text-gray-200">Request Format:</h4>
+    <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">{
+    "PASSWORD": "your_secret_password"
+}</pre>
+
+    <h4 class="mt-3 font-semibold text-gray-200">Response Format:</h4>
+    <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">"ok" // If password is valid
+
+{
+    "error": "Invalid Password"
+} // If password is incorrect
+</pre>
+
+    <h3 class="mt-6 text-2xl font-semibold text-gray-100">Protected Routes</h3>
+    <p class="mt-1 text-gray-400">All API endpoints require authentication. Every request must contain the
+        <code>PASSWORD</code> field.</p>
+
+    <h4 class="mt-3 font-semibold text-gray-200">Example Request to a Protected Route:</h4>
+    <pre class="bg-gray-700 text-white text-sm p-5 rounded-lg overflow-auto">POST /some-protected-route
+Content-Type: application/json
+
+{
+    "PASSWORD": "your_secret_password",
+    "other_data": "value"
+}</pre>
+</section>
+
     </div>
 
 

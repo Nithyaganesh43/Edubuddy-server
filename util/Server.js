@@ -29,6 +29,10 @@ server.use((req, res, next) => {
   next();
 });
 
+
+
+
+
 server.get('/ping', async (req, res) => { 
   console.log("Pong");
   res.send('Pong from Server 1'); 

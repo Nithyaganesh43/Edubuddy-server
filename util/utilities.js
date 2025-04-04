@@ -83,21 +83,24 @@ const fackQuestions = {
   ],
 };
 
-const generateQuestionsPrompt = (
-  name,
-  location,
-  cutoff,
-  board,
-  hrCourse,
-  favor_districts,
-  interested_colleges,
-  query
-) => `
+const generateQuestionsPrompt = (userData) => {
+  const {
+    name,
+    location,
+    cutoff,
+    'CBSC/BOARD': board,
+    'HR.Sec.Course': hrCourse,
+    favor_districts,
+    interested_colleges,
+    query,
+  } = userData;
+
+  return `
     I am ${name}, from ${location}. I studied ${board} and pursued ${hrCourse}. 
     My cutoff is ${cutoff}, and I prefer colleges in ${favor_districts.join(
-  ', and my fav college',
-  interested_colleges
-)}.
+    ', and my fav college',
+    interested_colleges
+  )}.
     ${query}
 
     Generate exactly 20 survey questions (5 Personal, 5 Lifestyle, 10 Technical) to help me decide.
@@ -116,9 +119,8 @@ const generateQuestionsPrompt = (
     }
     IMPORTANT: Ensure that the response strictly follows these constraints.  
   `;
-
-
-  const getrecommendationsPrompt = (userData, SurveyResult) => `
+}
+  const getrecommendationsPrompt = (userData, SurveyResult) =>{ return `
     Based on the student's profile, responses, and query, find the best course option.
 
     User Details:  
@@ -149,6 +151,10 @@ const generateQuestionsPrompt = (
     }
     Ensure the response never exceeds 50 characters because i make limit max token to 50.
     `;
+};
 
-
-    module.exports = {generateQuestionsPrompt,getrecommendationsPrompt,fackQuestions}
+module.exports = {
+  generateQuestionsPrompt,
+  getrecommendationsPrompt,
+  fackQuestions,
+};
