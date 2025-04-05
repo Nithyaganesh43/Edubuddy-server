@@ -2,12 +2,12 @@
    const {
      name,
      location,
-     cutoff,
-     'CBSC/BOARD': board,
-     'HR.Sec.Course': hrCourse,
-     favor_districts,
-     interested_colleges,
-     query,
+     cutoffScore: cutoff,
+     educationType: board,
+     hrSecCourse: hrCourse,
+     favorDistricts: favor_districts,
+     interestedColleges: interested_colleges,
+     userQuery: query,
    } = userData;
 
    return `
