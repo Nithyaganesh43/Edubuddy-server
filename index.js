@@ -26,9 +26,9 @@ app.use(express.json());
 app.use(serverRouter);
 
 app.post('/check', (req, res) => {
-  if (req.body.PASSWORD === process.env.PASSWORD) {
-    return res.send('ok');
-  }
+ if (req.body.PASSWORD === 'Swetha@2005') {
+   return res.send('ok');
+ }
   res.status(403).json({ error: 'Invalid Password' });
 });
 
