@@ -31,7 +31,7 @@
     - Each question should have exactly 3 answer options, with each option being 10 characters or fewer.  
     - The total number of questions must be exactly 20.  
 
-    **Output Format (JSON):**  
+    **Strict Rules for Output Format (JSON):**  
     {
       "questions": [
         { "q": "Do you like solving problems?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } },

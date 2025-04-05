@@ -31,22 +31,31 @@ app.post('/check', (req, res) => {
  }
   res.status(403).json({ error: 'Invalid Password' });
 });
-
-
-app.post('/fakeGenerateQuestions',checkAccess, async (req, res) => {
+app.post('/fakeGenerateQuestions', checkAccess, async (req, res) => {
   try {
-    const promptText = generateQuestionsPrompt(req.body.userData);
+    const { userData } = req.body;
+    if (!userData) return res.status(400).json({ error: 'Missing userData' });
+
+    const promptText = generateQuestionsPrompt(userData);
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: promptText }],
     });
 
     let content = response.choices?.[0]?.message?.content?.trim();
-    const jsonData = content ? JSON.parse(content) : {};
+
+    let jsonData = {};
+    try {
+      jsonData = content ? JSON.parse(content) : {};
+    } catch (e) {
+      return res
+        .status(500)
+        .json({ error: 'Invalid JSON response from OpenAI' });
+    }
 
     res.json(jsonData);
-  } catch (e){
-    res.status(500).json({ error: e.message});
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 
