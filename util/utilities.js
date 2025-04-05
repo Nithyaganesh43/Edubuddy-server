@@ -1,21 +1,26 @@
- const generateQuestionsPrompt = (userData) => {
-   const {
-     name,
-     location,
-     cutoffScore: cutoff,
-     educationType: board,
-     hrSecCourse: hrCourse,
-     favorDistricts: favor_districts,
-     interestedColleges: interested_colleges,
-     userQuery: query,
-   } = userData;
+const generateQuestionsPrompt = (userData) => {
+  const {
+    name,
+    location,
+    cutoffScore: cutoff,
+    educationType: board,
+    hrSecCourse: hrCourse,
+    favorDistricts,
+    interestedColleges,
+    userQuery: query,
+  } = userData;
 
-   return `
+  const favor_districts = Array.isArray(favorDistricts)
+    ? favorDistricts.join(', ')
+    : 'any district';
+  const interested_colleges = Array.isArray(interestedColleges)
+    ? interestedColleges.join(', ')
+    : 'any college';
+
+  return `
     I am ${name} from ${location}. I studied under the ${board} board and took ${hrCourse} in my previous course.  
-    My cutoff score is ${cutoff}, and I prefer colleges in ${favor_districts.join(
-     ', '
-   )}.  
-    Some colleges I am interested in: ${interested_colleges.join(', ')}.  
+    My cutoff score is ${cutoff}, and I prefer colleges in ${favor_districts}.  
+    Some colleges I am interested in: ${interested_colleges}.  
 
     ${query}
 
@@ -44,9 +49,10 @@
     - Questions should not be too direct, like "Do you want to study law?" Instead, ask in a way that helps the student think.  
     - The questions should be creative and personalized, making it easier for the student to explore their interests.  
   `;
- };
+};
 
-  const getrecommendationsPrompt = (userData, SurveyResult) =>{ return `
+const getrecommendationsPrompt = (userData, SurveyResult) => {
+  return `
     Based on the student's profile, responses, and query, find the best course option.
 
     User Details:  
@@ -80,5 +86,5 @@
 
 module.exports = {
   generateQuestionsPrompt,
-  getrecommendationsPrompt 
+  getrecommendationsPrompt,
 };
