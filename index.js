@@ -45,8 +45,8 @@ app.post('/fakeGenerateQuestions',checkAccess, async (req, res) => {
     const jsonData = content ? JSON.parse(content) : {};
 
     res.json(jsonData);
-  } catch {
-    res.status(500).json({ error: 'Something went wrong' });
+  } catch (e){
+    res.status(500).json({ error: e.message});
   }
 });
 
