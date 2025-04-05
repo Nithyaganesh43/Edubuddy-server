@@ -10,7 +10,11 @@ const {
   generateQuestionsPrompt,
   getrecommendationsPrompt,
 } = require('./util/utilities');
- 
+ const checkAccess = (req, res, next) => {
+   if (req.body.PASSWORD === "Swetha@2005") next();
+   else res.status(403).json({ error: 'Access Denied' });
+ };
+
 
 const doc = fs.readFileSync(path.join(__dirname, 'util', 'doc.html'), 'utf8');
 
@@ -29,7 +33,7 @@ app.post('/check', (req, res) => {
 });
 
 
-app.post('/fakeGenerateQuestions', async (req, res) => {
+app.post('/fakeGenerateQuestions',checkAccess, async (req, res) => {
   try {
     const promptText = generateQuestionsPrompt(req.body.userData);
     const response = await openai.chat.completions.create({
@@ -48,7 +52,7 @@ app.post('/fakeGenerateQuestions', async (req, res) => {
 
 
 app.post(
-  '/fakeGetRecommendations',
+  '/fakeGetRecommendations',checkAccess,
   async (req, res) => {
     try {
       const promptText = getrecommendationsPrompt(
