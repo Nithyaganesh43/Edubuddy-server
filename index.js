@@ -17,8 +17,7 @@ const doc = fs.readFileSync(path.join(__dirname, 'util', 'doc.html'), 'utf8');
 const openai = new OpenAI({ apiKey: process.env.API_KEY });
 const app = express();
 
-let [question,recommendation,chat]=[0,0,0];
-
+let [question,recommendation,chat]=[0,0,0]; 
 app.use(cookieParser());
 app.use(express.json());
 app.use(serverRouter);
