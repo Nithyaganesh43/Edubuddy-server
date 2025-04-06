@@ -21,6 +21,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(serverRouter);
 
+
+
 app.post('/check', (req, res) => {
   if (req.body.PASSWORD === process.env.PASSWORD) {
     return res.send('ok');

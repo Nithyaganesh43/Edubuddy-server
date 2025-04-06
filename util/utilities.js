@@ -19,7 +19,7 @@
 
     ${query}
 
-    Please create 20 thoughtful survey questions to help me choose the right course and college.  
+    Please create 20 thoughtful survey questions to help me choose the right course and college very very personalized for my query and detailes.  
     - 5 Personal questions  
     - 5 Lifestyle questions  
     - 10 Subject-related questions  
@@ -31,11 +31,11 @@
     - Each question should have exactly 3 answer options, with each option being 10 characters or fewer.  
     - The total number of questions must be exactly 20.  
 
-    **Output Format (JSON):**  
+    **Output Format (JSON):**  eg for query of frontend or backend
     {
       "questions": [
-        { "q": "Do you like solving problems?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } },
-        { "q": "Have you worked in ITO project before?", "options": { "1": "Yes", "2": "No", "3": "Not sure" } }
+        { "q": "Do you like create a web application like amazon in furure?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } },
+        { "q": "Are you intrested in designing things beutiful or solving challenging problems?", "options": { "1": "Design", "2": "Solving Problems", "3": "Not sure" } }
       ]
     }
 
@@ -43,6 +43,8 @@
     - The survey is for students in Tamil Nadu, India, from different education levels (12th-pass and college students).  
     - Questions should not be too direct, like "Do you want to study law?" Instead, ask in a way that helps the student think.  
     - The questions should be creative and personalized, making it easier for the student to explore their interests.  
+    -never make any questions that do not choose any one of the option i mean common for both options eg Are you interested in understanding human behavior? for query of ECE or CSE this is not good question each question shoud be very 
+    valubale and must clarify the query of the user not random and simle question 
   `;
  };
 
