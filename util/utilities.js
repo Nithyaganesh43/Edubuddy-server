@@ -54,15 +54,23 @@
     User Details:  
     Name: ${userData.name}  
     Location: ${userData.location}  
-    Cutoff: ${userData.cutoff}  
-    Board: ${userData['CBSC/BOARD']}  
-    High School Course: ${userData['HR.Sec.Course']}  
-    Preferred Districts: ${userData.favor_districts.join(', ')}  
-    Interested Colleges: ${userData.interested_colleges.join(', ')}  
-    Query: ${userData.query}  
+    Cutoff: ${userData.cutoffScore}  
+    Board: ${userData.educationType}  
+    High School Course: ${userData.hrSecCourse}  
+    Preferred Districts: ${
+      userData.favorDistricts
+        ? userData.favorDistricts.split(',').join(', ')
+        : 'N/A'
+    }  
+    Interested Colleges: ${
+      userData.interestedColleges
+        ? userData.interestedColleges.split(',').join(', ')
+        : 'N/A'
+    }  
+    Query: ${userData.userQuery}  
 
     Survey Responses:  
-    ${JSON.stringify(SurveyResult)}
+    ${JSON.stringify(SurveyResult, null, 2)} 
 
     Task:  
     - Search the internet to find real-time information about the courses mentioned in the query at the specified colleges.
