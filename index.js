@@ -65,7 +65,37 @@ app.post(
     }
   }
 );
- 
+ app.post('/chat', async (req, res) => {
+   try {
+     const { userMessage } = req.body;
+     if (!userMessage?.trim())
+       return res.status(400).json({ error: 'userMessage is required' });
+
+     const response = await openai.chat.completions.create({
+       model: 'gpt-3.5-turbo',
+       messages: [
+         {
+           role: 'system',
+           content:
+             'You are an AI assistant helping students choose the right courses and colleges, mainly in Tamil Nadu and India. Provide clear, kind, and concise responses. respond in para under 100 chars',
+         },
+         { role: 'user', content: userMessage },
+       ],
+       temperature: 0.7,
+       max_tokens: 150,
+     });
+
+     const aiReply =
+       response.choices?.[0]?.message?.content?.trim() ||
+       'I am unable to process your request at the moment.';
+     res.json({ response: aiReply });
+   } catch (error) {
+     res
+       .status(500)
+       .json({ error: 'Failed to generate response', details: error.message });
+   }
+ });
+
 app.use((req, res) => res.send(doc));
 
 const PORT = process.env.PORT || 3000;
