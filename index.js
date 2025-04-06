@@ -28,7 +28,7 @@ const auth = (req,res,next)=>{
    if (req.body.PASSWORD === 'Swetha@2005') {
      next();
    }
-   res.status(403).json({ error: 'Invalid Password' });
+   res.status(403).json({ error: 'Invalid Password' , PASSWORD: req.body.PASSWORD });
 }
 
 app.post('/check',auth, (req, res) => { 
