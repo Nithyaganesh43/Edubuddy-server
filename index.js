@@ -26,9 +26,9 @@ app.use(serverRouter);
 
 const auth = (req,res,next)=>{
    if (req.body.PASSWORD === 'Swetha@2005') {
-     next();
+     return next();
    }
-   res.status(403).json({ error: 'Invalid Password' , PASSWORD: req.body.PASSWORD });
+   res.status(403).json({ error: 'Invalid Password'});
 }
 
 app.post('/check',auth, (req, res) => { 
