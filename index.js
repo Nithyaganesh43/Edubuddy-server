@@ -22,16 +22,19 @@ app.use(express.json());
 app.use(serverRouter);
 
 
+const auth = (req,res,next)=>{
+   if (req.body.PASSWORD === 'Swetha@2005') {
+     next();
+   }
+   res.status(403).json({ error: 'Invalid Password' });
+}
 
-app.post('/check', (req, res) => {
-  if (req.body.PASSWORD === process.env.PASSWORD) {
-    return res.send('ok');
-  }
-  res.status(403).json({ error: 'Invalid Password' });
+app.post('/check',auth, (req, res) => { 
+    return res.send('ok'); 
 });
 
 
-app.post('/fakeGenerateQuestions', async (req, res) => {
+app.post('/fakeGenerateQuestions',auth, async (req, res) => {
   try {
     const promptText = generateQuestionsPrompt(req.body.userData);
     const response = await openai.chat.completions.create({
@@ -50,7 +53,7 @@ app.post('/fakeGenerateQuestions', async (req, res) => {
 
 
 app.post(
-  '/fakeGetRecommendations',
+  '/fakeGetRecommendations',auth,
   async (req, res) => {
     try {
       const promptText = getrecommendationsPrompt(
