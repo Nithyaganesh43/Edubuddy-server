@@ -123,6 +123,7 @@ app.get('/monitor', (req, res) => {
                 <p><span class="font-medium text-gray-700">Chat:</span> <span class="text-gray-600">${chat}</span></p>
                 <p><span class="font-medium text-gray-700">Question:</span> <span class="text-gray-600">${question}</span></p>
                 <p><span class="font-medium text-gray-700">Recommendation:</span> <span class="text-gray-600">${recommendation}</span></p>
+                <p><span class="font-medium text-gray-700">TOTAL:</span> <span class="text-gray-600">${recommendation+question+chat}</span></p>
             </div>
         </div>
     </body>
