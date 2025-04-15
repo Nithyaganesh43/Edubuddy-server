@@ -7,8 +7,7 @@ Use the student's personal data and query below to generate a customized survey.
 
  User Details:  
     Name: ${userData.name} 
-    Location: ${userData.location}  
-    Cutoff: ${userData.cutoffScore}    
+    Location: ${userData.location}   
     Previous Course info: ${userData.previousCourse}  
     Preferred Locations: ${
       userData.favorLocations
@@ -75,8 +74,7 @@ Options Format:
 
     User Details:  
     Name: ${userData.name} 
-    Location: ${userData.location}  
-    Cutoff: ${userData.cutoffScore}    
+    Location: ${userData.location}     
     Previous Course info: ${userData.previousCourse}  
     Preferred Locations: ${
       userData.favorLocations
@@ -102,7 +100,7 @@ Options Format:
     - Search the internet to find real-time information about the courses mentioned in the query at the specified colleges.
     - Compare them based on curriculum, job prospects, and relevancy to the student's survey responses.
     - Provide a strict, concise recommendation.
-
+    - give in full form not like this "CSE" 
     Strict JSON Response Format (must be under 150 characters):  
     {
       "recommendation": {
