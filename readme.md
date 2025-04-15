@@ -106,3 +106,4 @@ This backend serves as the core logic for a college project, providing AI-powere
 
 ### Conclusion
 This backend efficiently generates personalized course recommendations by integrating AI, ensuring an interactive and intelligent decision-making process for students.
+

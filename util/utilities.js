@@ -1,70 +1,96 @@
  const generateQuestionsPrompt = (userData) => {
-   const {
-     name,
-     location,
-     cutoff,
-     'CBSC/BOARD': board,
-     'HR.Sec.Course': hrCourse,
-     favor_districts,
-     interested_colleges,
-     query,
-   } = userData;
-
+  
    return `
-    I am ${name} from ${location}. I studied under the ${board} board and took ${hrCourse} in my previous course.  
-    My cutoff score is ${cutoff}, and I prefer colleges in ${favor_districts.join(
-     ', '
-   )}.  
-    Some colleges I am interested in: ${interested_colleges.join(', ')}.  
+You are an expert education and career guidance assistant.
 
-    ${query}
+Use the student's personal data and query below to generate a customized survey. The goal is to help the student make the right decision regarding their course and college.
 
-    Please create 20 thoughtful survey questions to help me choose the right course and college very very personalized for my query and detailes.  
-    - 5 Personal questions  
-    - 5 Lifestyle questions  
-    - 10 Subject-related questions  
+ User Details:  
+    Name: ${userData.name} 
+    Location: ${userData.location}  
+    Cutoff: ${userData.cutoffScore}    
+    Previous Course info: ${userData.previousCourse}  
+    Preferred Locations: ${
+      userData.favorLocations
+        ? userData.favorLocations.split(',').join(', ')
+        : 'N/A'
+    }  
+    Interested Colleges: ${
+      userData.interestedColleges
+        ? userData.interestedColleges.split(',').join(', ')
+        : 'N/A'
+    } 
+    Interested Course: ${
+      userData.interestedCourse
+        ? userData.interestedCourse.split(',').join(', ')
+        : 'N/A'
+    }  
+    Query: ${userData.userQuery}  
 
-    **Strict Rules for Questions:**  
-    - The questions should match my background and help me think about my future.  
-    - The questions should be easy to understand for students from different education levels.  
-    - Do not use specific terms like "engineering," "arts," or "medical" directly—ask in a way that any student can relate to.  
-    - Each question should have exactly 3 answer options, with each option being 10 characters or fewer.  
-    - The total number of questions must be exactly 20.  
+IMPORTANT: The query is the most critical input. Analyze it deeply. Every question in the survey must help the student clarify and reflect on this query.
 
-    **Output Format (JSON):**  eg for query of frontend or backend
+Survey Generation Instructions:
+- Generate exactly **20** multiple-choice questions:
+  - 5 Personal
+  - 5 Lifestyle
+  - 10 Subject/Career-related
+- Each question must be:
+  - **Custom to this student's profile and query**
+  - No more than **20 words**
+  - Easy to understand (for both 12th-grade and college students)
+  - Free of stream-specific terms (e.g., avoid "engineering", "arts", "medical", etc.)
+  - Meaningful — do **not** include vague or generic questions
+  - Helpful in guiding a real decision (no filler or overlap)
+
+Options Format:
+- Each question must include exactly **3 options**
+- Each option must be **≤10 characters**
+- Avoid neutral or middle-ground options that apply to all streams
+- Make sure options force a choice that reveals student preference
+
+**Output Format (JSON):**
+{
+  "questions": [
     {
-      "questions": [
-        { "q": "Do you like create a web application like amazon in furure?", "options": { "1": "Yes", "2": "No", "3": "Sometimes" } },
-        { "q": "Are you intrested in designing things beutiful or solving challenging problems?", "options": { "1": "Design", "2": "Solving Problems", "3": "Not sure" } }
-      ]
+      "q": "Do you want to build apps like Amazon in the future?",
+      "options": { "1": "Yes", "2": "No", "3": "Maybe" }
+    },
+    {
+      "q": "Do you enjoy designing visuals or solving logic problems?",
+      "options": { "1": "Design", "2": "Logic", "3": "Unsure" }
     }
+  ]
+}
 
-    **IMPORTANT:**  
-    - The survey is for students in Tamil Nadu, India, from different education levels (12th-pass and college students).  
-    - Questions should not be too direct, like "Do you want to study law?" Instead, ask in a way that helps the student think.  
-    - The questions should be creative and personalized, making it easier for the student to explore their interests.  
-    -never make any questions that do not choose any one of the option i mean common for both options eg Are you interested in understanding human behavior? for query of ECE or CSE this is not good question each question shoud be very 
-    valubale and must clarify the query of the user not random and simle question 
-  `;
+**Final Notes:**
+- This is a general-purpose platform — not restricted to any academic stream or level.
+- Avoid questions like “Do you want to study law?” — instead, create questions that **indirectly explore** the student’s thinking.
+- Every question must be **creative, specific, and actionable** — designed to drive clarity, not confusion.
+- Absolutely **no generic, vague, or “both could apply”** style questions (e.g., “Are you interested in human behavior?”).
+`;
  };
 
   const getrecommendationsPrompt = (userData, SurveyResult) =>{ return `
     Based on the student's profile, responses, and query, find the best course option.
 
     User Details:  
-    Name: ${userData.name}  
+    Name: ${userData.name} 
     Location: ${userData.location}  
-    Cutoff: ${userData.cutoffScore}  
-    Board: ${userData.educationType}  
-    High School Course: ${userData.hrSecCourse}  
-    Preferred Districts: ${
-      userData.favorDistricts
-        ? userData.favorDistricts.split(',').join(', ')
+    Cutoff: ${userData.cutoffScore}    
+    Previous Course info: ${userData.previousCourse}  
+    Preferred Locations: ${
+      userData.favorLocations
+        ? userData.favorLocations.split(',').join(', ')
         : 'N/A'
     }  
     Interested Colleges: ${
       userData.interestedColleges
         ? userData.interestedColleges.split(',').join(', ')
+        : 'N/A'
+    } 
+    Interested Course: ${
+      userData.interestedCourse
+        ? userData.interestedCourse.split(',').join(', ')
         : 'N/A'
     }  
     Query: ${userData.userQuery}  
@@ -75,14 +101,14 @@
     Task:  
     - Search the internet to find real-time information about the courses mentioned in the query at the specified colleges.
     - Compare them based on curriculum, job prospects, and relevancy to the student's survey responses.
-    - Provide a strict, concise recommendation in 150 characters or fewer.
+    - Provide a strict, concise recommendation.
 
     Strict JSON Response Format (must be under 150 characters):  
     {
       "recommendation": {
         "course": "Best-suited course",
         "college": "Best-suited college",
-        "reason": "Strictly under 100 characters reason should be personaly for this student"
+        "reason": "Strictly under 200 characters reason should be personaly for this student"
       }
     } 
     `;
