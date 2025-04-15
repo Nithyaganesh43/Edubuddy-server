@@ -40,7 +40,7 @@ app.post('/fakeGenerateQuestions',auth, async (req, res) => {
     const promptText = generateQuestionsPrompt(req.body.userData);
     question++;
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4-turbo',
       messages: [{ role: 'user', content: promptText }],
     });
 
@@ -64,7 +64,7 @@ app.post(
       );
       recommendation++;
       const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4-turbo',
         messages: [{ role: 'system', content: promptText }],
       });
       res.send(response.choices?.[0]?.message?.content || '');

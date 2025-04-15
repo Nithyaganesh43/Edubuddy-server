@@ -66,6 +66,7 @@ Options Format:
 - Avoid questions like “Do you want to study law?” — instead, create questions that **indirectly explore** the student’s thinking.
 - Every question must be **creative, specific, and actionable** — designed to drive clarity, not confusion.
 - Absolutely **no generic, vague, or “both could apply”** style questions (e.g., “Are you interested in human behavior?”).
+- if they gave intersted college and have confussion in it pls dont ask directly like this Would you rather study at SECE or PSG? 
 `;
  };
 
