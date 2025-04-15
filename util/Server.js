@@ -7,8 +7,7 @@ let allowedOrigins = [
   'http://127.0.0.1:5500',
   'https://v0-new-project-cckdh8yagwu-5e1qsm.vercel.app',
   'https://v0-next-js-course-website-virid.vercel.app',
-  'https://v0-new-project-cckdh8yagwu.vercel.app',
-  '',
+  'https://v0-new-project-cckdh8yagwu.vercel.app','https://v0-next-js-course-website-fxw6id.vercel.app'
 ];
  
 server.use(
