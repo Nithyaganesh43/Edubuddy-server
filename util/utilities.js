@@ -27,7 +27,7 @@ Use the student's personal data and query below to generate a customized survey.
     Query: ${userData.userQuery}  
 
 IMPORTANT: The query is the most critical input. Analyze it deeply. Every question in the survey must help the student clarify and reflect on this query.
-
+mention student's name ,  Interested Course/Colleges/Locations in some questions.
 Survey Generation Instructions:
 - Generate exactly **20** multiple-choice questions:
   - 5 Personal
