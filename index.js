@@ -48,8 +48,8 @@ app.post('/fakeGenerateQuestions',auth, async (req, res) => {
     const jsonData = content ? JSON.parse(content) : {};
 
     res.json(jsonData);
-  } catch {
-    res.status(500).json({ error: 'Something went wrong' });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -68,8 +68,8 @@ app.post(
         messages: [{ role: 'system', content: promptText }],
       });
       res.send(response.choices?.[0]?.message?.content || '');
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+    } catch (e) {
+      res.status(500).json({ error: e.message });
     }
   }
 );
