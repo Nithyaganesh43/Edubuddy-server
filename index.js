@@ -3,14 +3,14 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const { OpenAI } = require('openai');
 const serverRouter = require('./util/Server');
-
 const fs = require('fs');
 const path = require('path');
 const { 
   generateQuestionsPrompt,
   getrecommendationsPrompt,
 } = require('./util/utilities');
- 
+
+const {static_data,streams_exam_info} = require('./util/static');
 
 const doc = fs.readFileSync(path.join(__dirname, 'util', 'doc.html'), 'utf8');
 
@@ -128,9 +128,13 @@ app.get('/monitor', (req, res) => {
     </body>
     </html>
   `);
+}); 
+app.get('/static_data', (req, res) => {
+  res.json(static_data);
 });
-
-
+app.get('/streams_exam_info', (req, res) => {
+  res.json(streams_exam_info);
+});
 
 app.use((req, res) => res.send(doc));
 
