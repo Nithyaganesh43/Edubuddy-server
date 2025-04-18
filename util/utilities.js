@@ -30,8 +30,8 @@ IMPORTANT: The query is the most critical input. Analyze it deeply. Every questi
 mention student's name ,  Interested Course/Colleges/Locations in some questions.
 Survey Generation Instructions:
 - Generate exactly **20** multiple-choice questions:
-  - 5 Personal
-  - 5 Lifestyle
+  - 5 Personal about intrest
+  - 5 Lifestyle and future plans
   - 10 Subject/Career-related
 - Each question must be:
   - **Custom to this student's profile and query**

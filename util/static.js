@@ -122,7 +122,7 @@ let streams_exam_info = {
         },
       },
     },
-    arts_design: {
+    arts: {
       name: 'Arts & Design',
       exams: {
         nift: {
@@ -201,148 +201,274 @@ let streams_exam_info = {
 };
 
 
-let static_data={
-static_data:{
-streams:{
-engineering:{
-name:"Engineering",
-exams:{
-jee:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=jee+preparation"},
-{platform:"GeeksforGeeks",platformLogoUrl:"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png",link:"https://www.geeksforgeeks.org/tag/jee/"}
-]
-},
-bitsat:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=bitsat+preparation"},
-{platform:"BITS Pilani",platformLogoUrl:"https://seeklogo.com/images/B/bits-logo-19912.png",link:"https://www.bitsadmit.com/"}
-]
-},
-viteee:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=viteee+preparation"}
-]
-},
-manipal:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=manipal+engineering+exam+preparation"}
-]
-},
-wbjee:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=wbjee+preparation"}
-]
-}
-}
-},
-medical:{
-name:"Medical",
-exams:{
-neet:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=neet+preparation"},
-{platform:"GeeksforGeeks",platformLogoUrl:"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png",link:"https://www.geeksforgeeks.org/tag/neet/"}
-]
-},
-aiims:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=aiims+preparation"}
-]
-},
-jipmer:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=jipmer+preparation"}
-]
-},
-afmc:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=afmc+preparation"}
-]
-},
-aiapget:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=aiapget+preparation"}
-]
-}
-}
-},
-commerce:{
-name:"Commerce",
-exams:{
-cpt:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=cpt+exam+preparation"}
-]
-},
-cseet:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=cseet+exam+preparation"}
-]
-},
-ca_foundation:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=ca+foundation+exam+preparation"}
-]
-},
-clat:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=clat+exam+preparation"}
-]
-}
-}
-},
-arts:{
-name:"Arts",
-exams:{
-nift:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=nift+exam+preparation"}
-]
-},
-nid:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=nid+exam+preparation"}
-]
-},
-ceed:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=ceed+exam+preparation"}
-]
-},
-uceed:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=uceed+exam+preparation"}
-]
-}
-}
-},
-law:{
-name:"Law",
-exams:{
-clat:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=clat+exam+preparation"}
-]
-},
-ailet:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=ailet+exam+preparation"}
-]
-},
-lsat:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=lsat+india+exam+preparation"}
-]
-},
-slat:{
-learningMaterials:[
-{platform:"YouTube",platformLogoUrl:"https://img.icons8.com/color/48/youtube-play.png",link:"https://www.youtube.com/results?search_query=slat+exam+preparation"}
-]
-}
-}
-}
-}
-}}
+let static_data = {
+  static_data: {
+    streams: {
+      engineering: {
+        name: 'Engineering',
+        exams: {
+          jee: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=jee+preparation',
+              },
+              {
+                platform: 'GeeksforGeeks',
+                platformLogoUrl:
+                  'https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png',
+                link: 'https://www.geeksforgeeks.org/tag/jee/',
+              },
+            ],
+          },
+          bitsat: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=bitsat+preparation',
+              },
+              {
+                platform: 'BITS Pilani',
+                platformLogoUrl:
+                  'https://seeklogo.com/images/B/bits-logo-19912.png',
+                link: 'https://www.bitsadmit.com/',
+              },
+            ],
+          },
+          viteee: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=viteee+preparation',
+              },
+            ],
+          },
+          manipal: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=manipal+engineering+exam+preparation',
+              },
+            ],
+          },
+          wbjee: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=wbjee+preparation',
+              },
+            ],
+          },
+        },
+      },
+      medical: {
+        name: 'Medical',
+        exams: {
+          neet: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=neet+preparation',
+              },
+              {
+                platform: 'GeeksforGeeks',
+                platformLogoUrl:
+                  'https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png',
+                link: 'https://www.geeksforgeeks.org/tag/neet/',
+              },
+            ],
+          },
+          aiims: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=aiims+preparation',
+              },
+            ],
+          },
+          jipmer: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=jipmer+preparation',
+              },
+            ],
+          },
+          afmc: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=afmc+preparation',
+              },
+            ],
+          },
+          aiapget: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=aiapget+preparation',
+              },
+            ],
+          },
+        },
+      },
+      commerce: {
+        name: 'Commerce',
+        exams: {
+          cpt: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=cpt+exam+preparation',
+              },
+            ],
+          },
+          cseet: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=cseet+exam+preparation',
+              },
+            ],
+          },
+          ca_foundation: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=ca+foundation+exam+preparation',
+              },
+            ],
+          },
+          clat: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=clat+exam+preparation',
+              },
+            ],
+          },
+        },
+      },
+      arts: {
+        name: 'Arts & Design',
+        exams: {
+          nift: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=nift+exam+preparation',
+              },
+            ],
+          },
+          nid: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=nid+exam+preparation',
+              },
+            ],
+          },
+          ceed: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=ceed+exam+preparation',
+              },
+            ],
+          },
+          uceed: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=uceed+exam+preparation',
+              },
+            ],
+          },
+        },
+      },
+      law: {
+        name: 'Law',
+        exams: {
+          clat: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=clat+exam+preparation',
+              },
+            ],
+          },
+          ailet: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=ailet+exam+preparation',
+              },
+            ],
+          },
+          lsat: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=lsat+india+exam+preparation',
+              },
+            ],
+          },
+          slat: {
+            learningMaterials: [
+              {
+                platform: 'YouTube',
+                platformLogoUrl:
+                  'https://img.icons8.com/color/48/youtube-play.png',
+                link: 'https://www.youtube.com/results?search_query=slat+exam+preparation',
+              },
+            ],
+          },
+        },
+      },
+    },
+  },
+};
 
 module.exports={static_data,streams_exam_info}
