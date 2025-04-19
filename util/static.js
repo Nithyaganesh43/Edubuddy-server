@@ -121,45 +121,7 @@ let streams_exam_info = {
             'The last date for registration for the May 2025 exam was December 18, 2024.',
         },
       },
-    },
-    arts: {
-      name: 'Arts & Design',
-      exams: {
-        nift: {
-          name: 'National Institute of Fashion Technology Entrance Exam (NIFT)',
-          conductingBody: 'National Testing Agency (NTA)',
-          eligibility: 'Candidates who have passed 10+2 or equivalent.',
-          examLocations: 'Various centers across India.',
-          registration:
-            'The online application started on November 22, 2024, and the last date for submission was January 6, 2025.',
-        },
-        nid: {
-          name: 'National Institute of Design Entrance Exam (NID DAT)',
-          conductingBody: 'National Institute of Design (NID)',
-          eligibility: 'Candidates who have passed 10+2 or equivalent.',
-          examLocations: 'Various centers across India.',
-          registration:
-            'The application process for NID DAT 2025 started on September 3, 2024, and ended on December 6, 2024.',
-        },
-        ceed: {
-          name: 'Common Entrance Examination for Design (CEED)',
-          conductingBody: 'Indian Institute of Technology (IIT) Bombay',
-          eligibility:
-            'Candidates with a degree/diploma/postgraduate degree of at least 3 years after 10+2.',
-          examLocations: 'Various centers across India.',
-          registration:
-            'The online registration started on October 1, 2024, and ended on November 18, 2024.',
-        },
-        uceed: {
-          name: 'Undergraduate Common Entrance Exam for Design (UCEED)',
-          conductingBody: 'Indian Institute of Technology (IIT) Bombay',
-          eligibility: 'Candidates who have passed 10+2 or equivalent.',
-          examLocations: 'Various centers across India.',
-          registration:
-            'The online registration started on October 1, 2024, and ended on November 18, 2024.',
-        },
-      },
-    },
+    }, 
     law: {
       name: 'Law',
       exams: {
@@ -376,52 +338,7 @@ let static_data = {
             ],
           },
         },
-      },
-      arts: {
-        name: 'Arts & Design',
-        exams: {
-          nift: {
-            learningMaterials: [
-              {
-                platform: 'YouTube',
-                platformLogoUrl:
-                  'https://img.icons8.com/color/48/youtube-play.png',
-                link: 'https://www.youtube.com/results?search_query=nift+exam+preparation',
-              },
-            ],
-          },
-          nid: {
-            learningMaterials: [
-              {
-                platform: 'YouTube',
-                platformLogoUrl:
-                  'https://img.icons8.com/color/48/youtube-play.png',
-                link: 'https://www.youtube.com/results?search_query=nid+exam+preparation',
-              },
-            ],
-          },
-          ceed: {
-            learningMaterials: [
-              {
-                platform: 'YouTube',
-                platformLogoUrl:
-                  'https://img.icons8.com/color/48/youtube-play.png',
-                link: 'https://www.youtube.com/results?search_query=ceed+exam+preparation',
-              },
-            ],
-          },
-          uceed: {
-            learningMaterials: [
-              {
-                platform: 'YouTube',
-                platformLogoUrl:
-                  'https://img.icons8.com/color/48/youtube-play.png',
-                link: 'https://www.youtube.com/results?search_query=uceed+exam+preparation',
-              },
-            ],
-          },
-        },
-      },
+      }, 
       law: {
         name: 'Law',
         exams: {
