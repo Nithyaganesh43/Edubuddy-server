@@ -2,7 +2,10 @@
 const server = require('express').Router();
 const cors = require("cors");
 
-let allowedOrigins = ['https://edubuddy-platform.vercel.app'];
+let allowedOrigins = [
+  'https://edubuddy-platform.vercel.app',
+  'https://edubuddy-platform.vercel.app/'
+];
  
 server.use(
   cors({
