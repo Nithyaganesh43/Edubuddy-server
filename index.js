@@ -10,7 +10,7 @@ const {
   getrecommendationsPrompt,
 } = require('./util/utilities');
 
-const {static_data,streams_exam_info} = require('./util/');
+const {static_data,streams_exam_info} = require('./util/static');
 
 const doc = fs.readFileSync(path.join(__dirname, 'util', 'doc.html'), 'utf8');
 
