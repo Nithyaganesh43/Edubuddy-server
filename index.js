@@ -22,7 +22,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(serverRouter);
 
-
 const auth = (req,res,next)=>{
    if (req.body.PASSWORD === 'Swetha@2005') {
      return next();
